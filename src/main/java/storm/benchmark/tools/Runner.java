@@ -89,6 +89,7 @@ public class Runner {
           throws AlreadyAliveException, InvalidTopologyException {
 //    config.putAll(Utils.readStormConfig());
     config.put("nimbus.host", "10.0.20.3");
+    config.put("nimbus.thrift.port", "6627");
     config.put("metrics.enabled", true);
     config.put("metrics.poll", 60000);
     config.put("metrics.time", 300000);
