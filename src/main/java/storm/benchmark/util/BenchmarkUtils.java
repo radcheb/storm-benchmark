@@ -61,9 +61,7 @@ public final class BenchmarkUtils {
   }
 
   public static int getInt(Map map, Object key, int def) {
-	  int res = Integer.parseInt((String)map.get(key));
-//	  return Utils.getInt(Utils.get(map, key, def));
-	  return res;
+    return Utils.getInt(Utils.get(map, key, def));
   }
 
   public static boolean ifAckEnabled(Config config) {
