@@ -87,7 +87,20 @@ public class Runner {
 
   private static void runApplication(IApplication app)
           throws AlreadyAliveException, InvalidTopologyException {
-    config.putAll(Utils.readStormConfig());
+//    config.putAll(Utils.readStormConfig());
+    config.put("nimbus.host", "10.0.20.3");
+    config.put("metrics.enabled", "true");
+    config.put("metrics.poll", "60000");
+    config.put("metrics.time", "300000");
+    config.put("metrics.path", "reports");
+    config.put("topology.workers", "4");
+    config.put("topology.acker.executors", "4");
+    config.put("topology.max.spout.pending", "200");
+    config.put("topology.name", "SOL");
+    config.put("topology.level", "3");
+    config.put("message.size", "100");
+    config.put("component.spout_num", "4");
+    config.put("component.bolt_num", "8");
     String name = (String) config.get(Config.TOPOLOGY_NAME);
     topology = app.getTopology(config);
     StormSubmitter.submitTopology(name, config, topology);
